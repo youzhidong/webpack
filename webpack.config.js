@@ -15,5 +15,22 @@ module.exports = {
                 template: './index.html'
             }
         )
-    ]
+    ],
+    module: {
+        rules: [
+            {
+                test: /\.js$/, // 已什么结尾的文件
+                exclude: /(node_modules|bower_components)/,
+                use: {
+                    loader: 'babel-loader'
+                }
+            }
+        ]
+    },
+    devServer: {
+        contentBase: path.join(__dirname, 'dist'),
+        compress: false, // 是否压缩
+        port: 9000,
+        open: true
+    }
 };
