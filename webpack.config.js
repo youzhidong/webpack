@@ -4,7 +4,7 @@ const path = require("path");
 const HtmlWebpackPlugin = require('html-webpack-plugin'); // 通过 npm 安装
 
 module.exports = {
-    entry: './src/js/index.js',
+    entry: './src/main.js',
     output: {
         path: path.resolve(__dirname, './dist'),
         filename: 'my-first-webpack.bundle.js'
@@ -23,6 +23,13 @@ module.exports = {
                 exclude: /(node_modules|bower_components)/,
                 use: {
                     loader: 'babel-loader'
+                }
+            },
+            {
+                test: /\.vue$/,
+                exclude: /(node_modules|bower_components)/,
+                use: {
+                    loader: 'vue-loader'
                 }
             }
         ]
